@@ -1,12 +1,13 @@
 import { AppState } from "../AppState.js";
 import { api } from "./AxiosService.js";
+import { BGImage } from "../models/BGImage.js";
 
 class ImageService {
 
 
   async getImage() {
     const response = await api.get('api/images');
-    const newImage = response.data;
+    const newImage = new BGImage(response.data);
 
     AppState.image = newImage;
     AppState.emit('image')

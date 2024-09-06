@@ -9,7 +9,11 @@ export class ImageController {
   }
 
   async getImage() {
-    await imageService.getImage();
+    try {
+      await imageService.getImage();
+    } catch (error) {
+      Pop.error(error);
+    }
   }
 
   drawImage() {
@@ -18,6 +22,5 @@ export class ImageController {
 
     setText('photographer', img.author);
     mainElem.style.backgroundImage = `url(${img.largeImgUrl})`;
-    return img.largeImgUrl;
   }
 }
