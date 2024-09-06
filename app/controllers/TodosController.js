@@ -16,7 +16,7 @@ export class TodosController {
     const todoFormData = getFormData(todoFormElem);
     try {
       await todosService.createTodo(todoFormData);
-      Pop.success('Created new todo.');
+      todoFormElem.reset();
     } catch (error) {
       Pop.error(error);
     }
@@ -60,12 +60,14 @@ export class TodosController {
       todoContElem.classList.remove("d-none");
     }
 
-    let todos = AppState.todos;
+    const todos = AppState.todos;
     let todoCont = '';
 
     todos.forEach(todo => todoCont += todo.listTemplate);
 
     setHTML('todo-list', todoCont);
-    setHTML('todo-count', todos.length);
+
+    const uncompletedTodos = todos.filter(todo => todo.completed == false);
+    setHTML('todo-count', uncompletedTodos.length);
   }
 }
