@@ -37,6 +37,12 @@ input[type="checkbox"] {
   margin-bottom: 0.5em;
 }
 
+.todo-list {
+  background-color: var(--darkA);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
 .todo-input {
   width: 80%;
   border: none;
@@ -49,11 +55,6 @@ input[type="checkbox"] {
   color: var(--light)
 }
 
-.todo-list {
-  background-color: var(--darkA);
-  padding: 1rem;
-  border-radius: 10px;
-}
 
 .bottom-bar {
   background-color: var(--darkA);

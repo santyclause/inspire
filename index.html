@@ -21,12 +21,13 @@
       <div class="col-md-4">
         <p>Image by <span id="photographer">blah</span></p>
       </div>
-      <div class="col-md-4 d-flex flex-column align-items-end">
+      <div id="todo-cont" data-bs-toggle="collapse" href="#todo-list-cont"
+        class="col-md-4 d-flex flex-column align-items-end d-none">
         <div class="d-flex justify-content-between w-50 todo align-items-center text-light" role="button">
           <i class="mdi mdi-arrow-down-drop-circle-outline"></i>
-          <span>Todo</span>
+          <p><span id="todo-count">0</span> todos remaining</p>
         </div>
-        <div class="w-50 text-light todo-list">
+        <div id="todo-list-cont" class="w-50 text-light todo-list collapse">
           <div>
             <form class="input-group mb-3" onsubmit="app.TodosController.createTodo()">
               <input name="description" type="text" placeholder="Add Todo" class="todo-input" required>

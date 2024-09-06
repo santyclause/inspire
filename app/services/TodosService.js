@@ -20,11 +20,21 @@ class TodosService {
   }
 
   async deleteTodo(todoId) {
-    const response = await api.delete(`api/todos/${todoId}`);
+    await api.delete(`api/todos/${todoId}`);
     const todos = AppState.todos;
     const foundIndex = todos.findIndex(todo => todo.id == todoId);
 
     todos.splice(foundIndex, 1);
+  }
+
+  async completeTodo(todoId) {
+    const todos = AppState.todos;
+    const todoIndex = todos.findIndex(todo => todo.id == todoId);
+    const payload = { completed: !todos[todoIndex].completed };
+
+    const response = await api.put(`api/todos/${todoId}`, payload);
+
+    todos.splice(todoIndex, 1, new Todo(response.data));
   }
 }
 

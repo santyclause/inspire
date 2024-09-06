@@ -16,6 +16,7 @@ export class TodosController {
     const todoFormData = getFormData(todoFormElem);
     try {
       await todosService.createTodo(todoFormData);
+      Pop.success('Created new todo.');
     } catch (error) {
       Pop.error(error);
     }
@@ -42,12 +43,29 @@ export class TodosController {
     }
   }
 
+  async completeTodo(todoId) {
+    try {
+      await todosService.completeTodo(todoId);
+    } catch (error) {
+      Pop.error(error);
+    }
+  }
+
   drawTodos() {
+    const todoContElem = document.getElementById('todo-cont');
+
+    if (AppState.user == null) {
+      return
+    } else {
+      todoContElem.classList.remove("d-none");
+    }
+
     let todos = AppState.todos;
     let todoCont = '';
 
     todos.forEach(todo => todoCont += todo.listTemplate);
 
     setHTML('todo-list', todoCont);
+    setHTML('todo-count', todos.length);
   }
 }

@@ -8,7 +8,7 @@ export class Todo {
   get listTemplate() {
     return `
           <div class="d-flex justify-content-between align-items-center">
-            <input type="checkbox">
+            <input onchange="app.TodosController.completeTodo('${this.id}')" type="checkbox" ${this.completed ? 'checked' : ''}>
             <p>${this.description}</p>
             <i role="button" onclick="app.TodosController.deleteTodo('${this.id}')" class="fs-3 mdi mdi-delete-forever"></i>
           </div>
