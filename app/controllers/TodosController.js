@@ -9,7 +9,6 @@ export class TodosController {
   constructor() {
     AppState.on('user', this.getTodos)
     AppState.on('todos', this.drawTodos)
-    this.interval = setInterval(this.getTime, 100);
   }
 
   async createTodo() {
@@ -70,13 +69,4 @@ export class TodosController {
     setHTML('todo-list', todoCont);
     setHTML('todo-count', todos.length);
   }
-
-  getTime() {
-    let time = todosService.getTime;
-    drawTime(time);
-  }
-}
-
-function drawTime(time) {
-  setText('time', time)
 }

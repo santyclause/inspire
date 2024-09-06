@@ -1,5 +1,6 @@
 import { AuthController } from './controllers/AuthController.js';
 import { TodosController } from './controllers/TodosController.js';
+import { TimeController } from './controllers/TimeController.js';
 import { router } from './router-config.js';
 const USE_ROUTER = false
 
@@ -7,6 +8,7 @@ class App {
 
   AuthController = new AuthController()
   TodosController = new TodosController()
+  TimeController = new TimeController();
 
   constructor() {
     if (USE_ROUTER) {
