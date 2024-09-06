@@ -36,6 +36,11 @@ class TodosService {
 
     todos.splice(todoIndex, 1, new Todo(response.data));
   }
+
+  get getTime() {
+    let time = new Date().toLocaleTimeString();
+    return time;
+  }
 }
 
 export const todosService = new TodosService();

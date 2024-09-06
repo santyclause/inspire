@@ -3,11 +3,13 @@ import { todosService } from "../services/TodosService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
+import { setText } from "../utils/Writer.js";
 
 export class TodosController {
   constructor() {
     AppState.on('user', this.getTodos)
     AppState.on('todos', this.drawTodos)
+    this.interval = setInterval(this.getTime, 100);
   }
 
   async createTodo() {
@@ -68,4 +70,13 @@ export class TodosController {
     setHTML('todo-list', todoCont);
     setHTML('todo-count', todos.length);
   }
+
+  getTime() {
+    let time = todosService.getTime;
+    drawTime(time);
+  }
+}
+
+function drawTime(time) {
+  setText('time', time)
 }
