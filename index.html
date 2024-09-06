@@ -16,8 +16,42 @@
 </head>
 
 <body>
-  <main>
-
+  <main class="container-fluid">
+    <section class="row justify-content-between p-3">
+      <div class="col-md-4">
+        <p>Image by <span id="photographer">blah</span></p>
+      </div>
+      <div class="col-md-4 d-flex flex-column align-items-end">
+        <div class="d-flex justify-content-between w-50 todo align-items-center text-light" role="button">
+          <i class="mdi mdi-arrow-down-drop-circle-outline"></i>
+          <span>Todo</span>
+        </div>
+        <div class="w-50 text-light todo-list">
+          <div>
+            <form class="input-group mb-3" onsubmit="app.TodosController.createTodo()">
+              <input name="description" type="text" placeholder="Add Todo" class="todo-input" required>
+              <button type="submit" class="todo-btn">+</button>
+            </form>
+          </div>
+          <div id="todo-list">
+            <!-- NOTE Todos go here -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="row mx-5 my-3 bottom-bar text-light">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <div class="weather">
+          Weather
+        </div>
+        <div>
+          <h1>Time</h1>
+        </div>
+        <div>
+          <div class="justify-content-end align-items-center d-flex" id="authstate"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

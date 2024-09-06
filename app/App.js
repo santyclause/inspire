@@ -1,13 +1,15 @@
 import { AuthController } from './controllers/AuthController.js';
+import { TodosController } from './controllers/TodosController.js';
 import { router } from './router-config.js';
 const USE_ROUTER = false
 
 class App {
 
   AuthController = new AuthController()
-  
+  TodosController = new TodosController()
+
   constructor() {
-    if(USE_ROUTER){
+    if (USE_ROUTER) {
       this.router = router
       this.router.init(this)
     }
