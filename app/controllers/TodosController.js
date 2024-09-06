@@ -3,7 +3,6 @@ import { todosService } from "../services/TodosService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
-import { setText } from "../utils/Writer.js";
 
 export class TodosController {
   constructor() {

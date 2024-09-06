@@ -16,10 +16,10 @@
 </head>
 
 <body>
-  <main class="container-fluid">
+  <main id="main" class="container-fluid vh-100">
     <section class="row justify-content-between p-3">
-      <div class="col-md-4">
-        <p>Image by <span id="photographer">blah</span></p>
+      <div class="col-md-4 text-light quote">
+        <p>Image by <span id="photographer"></span></p>
       </div>
       <div id="todo-cont" data-bs-toggle="collapse" href="#todo-list-cont"
         class="col-md-4 d-flex flex-column align-items-end d-none">
@@ -40,13 +40,17 @@
         </div>
       </div>
     </section>
-    <section class="row mx-5 my-3 bottom-bar text-light">
-      <div class="col-12 d-flex justify-content-between align-items-center">
+    <section class="row mx-5 my-3 text-light">
+      <div class="col-12 mb-3 text-center quote">
+        <h5>"<span id="quote"></span>"</h5>
+        <h6 class="author">-<span id="author"></span></h6>
+      </div>
+      <div class="col-12 d-flex justify-content-between align-items-center bottom-bar">
         <div class="weather">
           Weather
         </div>
         <div>
-          <h1 id="time">Time</h1>
+          <h1 id="time">00:00:00 AM</h1>
         </div>
         <div>
           <div class="justify-content-end align-items-center d-flex" id="authstate"></div>

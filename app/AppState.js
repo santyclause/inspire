@@ -9,6 +9,8 @@ class ObservableAppState extends EventEmitter {
   account = null
 
   todos = [];
+
+  image = null;
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
